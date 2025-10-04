@@ -252,7 +252,7 @@ function App() {
                 Explore Solutions
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
-              <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-blue-900 text-lg px-8 py-3">
+              <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-white hover:bg-white hover:text-blue-900 text-lg px-8 py-3">
                 View Success Stories
               </Button>
             </div>
