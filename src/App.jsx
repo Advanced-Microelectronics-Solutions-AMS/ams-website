@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { Button } from '@/components/ui/button.jsx'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card.jsx'
@@ -17,7 +17,10 @@ import {
   Phone,
   Mail,
   MapPin,
-  ExternalLink
+  ExternalLink,
+  Droplets,
+  Smartphone,
+  Settings
 } from 'lucide-react'
 import './App.css'
 
@@ -25,6 +28,11 @@ import './App.css'
 import serverRoomHero from './assets/server-room-hero.jpg'
 import iotSensors from './assets/iot-sensors.jpg'
 import dashboardMockup from './assets/dashboard-mockup.png'
+import hospitalExterior from './assets/hospital-exterior.webp'
+import controlRoom from './assets/control-room.webp'
+import hospitalRoom from './assets/hospital-room.webp'
+import amsLogo from './assets/ams-logo.png'
+import waterMonitoringSystem from './assets/water-monitoring-system.png'
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -35,6 +43,7 @@ function App() {
   const navItems = [
     { name: 'Home', href: '#home' },
     { name: 'Solutions', href: '#solutions' },
+    { name: 'Healthcare', href: '#healthcare' },
     { name: 'Success Stories', href: '#success-stories' },
     { name: 'Partners', href: '#partners' },
     { name: 'About', href: '#about' },
@@ -65,9 +74,9 @@ function App() {
     },
     {
       title: 'Healthcare IoT Deployment',
-      subtitle: 'Real-Time Environmental Monitoring',
-      description: 'Environmental and power monitoring system deployed across 29 hospitals for critical equipment and area monitoring.',
-      metrics: ['29 hospitals deployed', 'Real-time alerts', 'Critical area monitoring'],
+      subtitle: 'Smart Hospital Asset & Facility Management',
+      description: 'Comprehensive environmental and power monitoring system deployed across 29 hospitals, protecting critical medical equipment and ensuring patient safety through real-time monitoring of isolation rooms, OT rooms, and medication storage areas.',
+      metrics: ['29 hospitals network', 'Critical equipment protection', 'Patient safety compliance', 'Real-time environmental alerts'],
       client: 'KPJ Healthcare'
     },
     {
@@ -83,6 +92,13 @@ function App() {
       description: 'Real-time swimming pool water quality monitoring with pH, temperature, TDS, and chlorine level tracking.',
       metrics: ['Real-time monitoring', 'Multi-parameter tracking', 'Automated alerts'],
       client: 'Sunway'
+    },
+    {
+      title: 'Hospital Asset Tracking',
+      subtitle: 'Medical Equipment Management',
+      description: 'Real-time indoor asset tracking system for medical equipment in Sarawak General Hospital, providing location monitoring and environmental condition tracking for mobile medical devices.',
+      metrics: ['Real-time asset location', 'Environmental monitoring', 'Medical equipment tracking', 'Incident management'],
+      client: 'Sarawak General Hospital'
     }
   ]
 
@@ -141,11 +157,11 @@ function App() {
             {/* Logo */}
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <div className="text-2xl font-bold text-blue-900">
-                  <span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
-                    AMS
-                  </span>
-                </div>
+                <img 
+                  src={amsLogo} 
+                  alt="AMS - Advanced Microelectronic Solutions" 
+                  className="h-10 w-auto"
+                />
               </div>
             </div>
 
@@ -238,22 +254,26 @@ function App() {
               Malaysian Digital Status Certified
             </Badge>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
-              Asset Management
+              Asset Management System Malaysia
               <span className="block bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                Revolution
+                CMMS & IoT Monitoring Solutions
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto">
-              Transforming facility operations with intelligent IoT solutions, real-time monitoring, 
-              and automated asset management systems.
+              Leading provider of Asset Management Systems, CMMS, and IoT monitoring solutions for hospitals, 
+              manufacturing, ports, and commercial facilities across Malaysia. Malaysian Digital Status certified.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-lg px-8 py-3">
-                Explore Solutions
-                <ArrowRight className="ml-2 w-5 h-5" />
+              <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-lg px-8 py-3" asChild>
+                <a href="#solutions">
+                  Explore Solutions
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </a>
               </Button>
-              <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-white hover:bg-white hover:text-blue-900 text-lg px-8 py-3">
-                View Success Stories
+              <Button size="lg" variant="outline" className="bg-white/10 backdrop-blur-sm text-white border-white hover:bg-white hover:text-blue-900 text-lg px-8 py-3" asChild>
+                <a href="#success-stories">
+                  View Success Stories
+                </a>
               </Button>
             </div>
           </motion.div>
@@ -282,12 +302,13 @@ function App() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Leading Innovation in Facility Management
+              Leading Asset Management & CMMS Provider in Malaysia
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Advanced Microelectronic Solutions (AMS) specializes in innovative engineering and IT solutions 
-              focused on facility management operations. We develop integrated technologies and automated 
-              solutions using the latest automation technologies available in the market.
+              Advanced Microelectronic Solutions (AMS) is Malaysia's premier provider of Asset Management Systems, 
+              CMMS software, and IoT monitoring solutions. As a Malaysian Digital Status certified company, we specialize 
+              in innovative engineering and IT solutions for healthcare facilities, manufacturing plants, ports, and 
+              commercial buildings across Malaysia and Southeast Asia.
             </p>
           </motion.div>
 
@@ -369,15 +390,17 @@ function App() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Comprehensive Asset Management Ecosystem
+              Asset Management System & CMMS Solutions Malaysia
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Our integrated approach combines intelligent hardware and software to deliver real-time visibility, 
-              streamlined operations, and scalable deployment across your organization.
+              Our comprehensive Asset Management System and CMMS software solutions combine intelligent IoT hardware 
+              and software to deliver real-time visibility, predictive maintenance, and scalable deployment across 
+              healthcare, manufacturing, and commercial facilities in Malaysia.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Original Three Solution Cards */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-20">
             {solutions.map((solution, index) => (
               <motion.div
                 key={solution.title}
@@ -388,12 +411,12 @@ function App() {
               >
                 <Card className="h-full hover:shadow-lg transition-shadow duration-300">
                   <CardHeader>
-                    <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                    <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                       <div className="text-blue-600">
                         {solution.icon}
                       </div>
                     </div>
-                    <CardTitle className="text-xl">{solution.title}</CardTitle>
+                    <CardTitle className="text-xl text-center">{solution.title}</CardTitle>
                     <CardDescription className="text-base">
                       {solution.description}
                     </CardDescription>
@@ -412,6 +435,247 @@ function App() {
               </motion.div>
             ))}
           </div>
+
+          {/* Detailed IoT Solutions Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              IoT Monitoring Solutions Malaysia | Power, Water & Asset Tracking
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Specialized IoT monitoring solutions for Malaysian healthcare, manufacturing, and commercial facilities. 
+              Our power monitoring, water quality monitoring, and asset tracking systems provide real-time analytics, 
+              predictive maintenance, and regulatory compliance across all industries.
+            </p>
+          </motion.div>
+
+          {/* Power Monitoring Solution */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="mb-20"
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <div className="flex items-center mb-6">
+                  <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
+                    <Zap className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900">Power Monitoring System Malaysia | EPMS Solutions</h3>
+                </div>
+                <p className="text-lg text-gray-600 mb-6">
+                  Advanced electrical power monitoring systems (EPMS) that provide real-time insight into energy usage, 
+                  power quality, and electrical network health. Essential for facilities where power outages result in 
+                  costly downtime and equipment damage.
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                  <div className="bg-blue-50 rounded-lg p-4">
+                    <h4 className="font-semibold text-gray-900 mb-2">Real-Time Monitoring</h4>
+                    <p className="text-sm text-gray-600">Continuous tracking of power consumption, voltage, current, and power quality parameters</p>
+                  </div>
+                  <div className="bg-blue-50 rounded-lg p-4">
+                    <h4 className="font-semibold text-gray-900 mb-2">Predictive Maintenance</h4>
+                    <p className="text-sm text-gray-600">Early detection of electrical issues before equipment failure occurs</p>
+                  </div>
+                  <div className="bg-blue-50 rounded-lg p-4">
+                    <h4 className="font-semibold text-gray-900 mb-2">Energy Optimization</h4>
+                    <p className="text-sm text-gray-600">Identify and eliminate energy waste, reduce utility costs by up to 30%</p>
+                  </div>
+                  <div className="bg-blue-50 rounded-lg p-4">
+                    <h4 className="font-semibold text-gray-900 mb-2">Equipment Protection</h4>
+                    <p className="text-sm text-gray-600">Protect sensitive equipment from power quality issues and electrical hazards</p>
+                  </div>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  <Badge variant="outline" className="text-blue-600 border-blue-600">Critical Infrastructure</Badge>
+                  <Badge variant="outline" className="text-blue-600 border-blue-600">Healthcare</Badge>
+                  <Badge variant="outline" className="text-blue-600 border-blue-600">Manufacturing</Badge>
+                  <Badge variant="outline" className="text-blue-600 border-blue-600">Data Centers</Badge>
+                </div>
+              </div>
+              <div className="relative">
+                <img 
+                  src={controlRoom} 
+                  alt="Power Monitoring Control Room" 
+                  className="rounded-lg shadow-xl"
+                />
+                <div className="absolute inset-0 bg-blue-600/10 rounded-lg"></div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Water Monitoring Solution */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="mb-20"
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div className="order-2 lg:order-1 relative">
+                <img 
+                  src={waterMonitoringSystem} 
+                  alt="IoT Water Quality Monitoring System Architecture" 
+                  className="rounded-lg shadow-xl"
+                />
+                <div className="absolute inset-0 bg-blue-600/10 rounded-lg"></div>
+              </div>
+              <div className="order-1 lg:order-2">
+                <div className="flex items-center mb-6">
+                  <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
+                    <Droplets className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900">Water Quality Monitoring System Malaysia | IoT Solutions</h3>
+                </div>
+                <p className="text-lg text-gray-600 mb-6">
+                  Comprehensive IoT-based water quality and level monitoring systems that ensure safe water supply, 
+                  regulatory compliance, and efficient water resource management across facilities.
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                  <div className="bg-blue-50 rounded-lg p-4">
+                    <h4 className="font-semibold text-gray-900 mb-2">Quality Parameters</h4>
+                    <p className="text-sm text-gray-600">pH, turbidity, dissolved oxygen, TDS, chlorine, temperature monitoring</p>
+                  </div>
+                  <div className="bg-blue-50 rounded-lg p-4">
+                    <h4 className="font-semibold text-gray-900 mb-2">Tank Level Monitoring</h4>
+                    <p className="text-sm text-gray-600">Real-time water level tracking and automated leak detection systems</p>
+                  </div>
+                  <div className="bg-blue-50 rounded-lg p-4">
+                    <h4 className="font-semibold text-gray-900 mb-2">Regulatory Compliance</h4>
+                    <p className="text-sm text-gray-600">Automated reporting and compliance documentation for health standards</p>
+                  </div>
+                  <div className="bg-blue-50 rounded-lg p-4">
+                    <h4 className="font-semibold text-gray-900 mb-2">Predictive Analytics</h4>
+                    <p className="text-sm text-gray-600">Forecast maintenance needs and optimize treatment processes</p>
+                  </div>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  <Badge variant="outline" className="text-blue-600 border-blue-600">Swimming Pools</Badge>
+                  <Badge variant="outline" className="text-blue-600 border-blue-600">Healthcare</Badge>
+                  <Badge variant="outline" className="text-blue-600 border-blue-600">Industrial</Badge>
+                  <Badge variant="outline" className="text-blue-600 border-blue-600">Municipal</Badge>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Asset Tracking Solution */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="mb-20"
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <div className="flex items-center mb-6">
+                  <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
+                    <MapPin className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900">Asset Tracking System Malaysia | RFID & GPS Solutions</h3>
+                </div>
+                <p className="text-lg text-gray-600 mb-6">
+                  Advanced indoor and outdoor asset tracking systems using RFID, BLE beacons, LoRa, and GPS technology 
+                  for real-time asset location, status monitoring, and comprehensive asset management.
+                </p>
+                
+                <div className="mb-8">
+                  <h4 className="text-lg font-semibold text-gray-900 mb-4">Indoor Asset Tracking</h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                    <div className="bg-green-50 rounded-lg p-4">
+                      <h5 className="font-semibold text-gray-900 mb-2">RFID & BLE Technology</h5>
+                      <p className="text-sm text-gray-600">High-precision location tracking with sub-meter accuracy</p>
+                    </div>
+                    <div className="bg-green-50 rounded-lg p-4">
+                      <h5 className="font-semibold text-gray-900 mb-2">Real-Time Location</h5>
+                      <p className="text-sm text-gray-600">Continuous asset position updates and geofencing alerts</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mb-6">
+                  <h4 className="text-lg font-semibold text-gray-900 mb-4">Outdoor Asset Tracking</h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                    <div className="bg-orange-50 rounded-lg p-4">
+                      <h5 className="font-semibold text-gray-900 mb-2">GPS/GNSS Tracking</h5>
+                      <p className="text-sm text-gray-600">Precise global positioning with cellular connectivity</p>
+                    </div>
+                    <div className="bg-orange-50 rounded-lg p-4">
+                      <h5 className="font-semibold text-gray-900 mb-2">Fleet Management</h5>
+                      <p className="text-sm text-gray-600">Vehicle tracking, route optimization, and theft prevention</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex flex-wrap gap-2">
+                  <Badge variant="outline" className="text-blue-600 border-blue-600">Medical Equipment</Badge>
+                  <Badge variant="outline" className="text-blue-600 border-blue-600">Construction</Badge>
+                  <Badge variant="outline" className="text-blue-600 border-blue-600">Manufacturing</Badge>
+                  <Badge variant="outline" className="text-blue-600 border-blue-600">Fleet Vehicles</Badge>
+                </div>
+              </div>
+              <div className="relative">
+                <img 
+                  src={dashboardMockup} 
+                  alt="Asset Tracking Dashboard" 
+                  className="rounded-lg shadow-xl"
+                />
+                <div className="absolute inset-0 bg-blue-600/10 rounded-lg"></div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Integration Platform */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center"
+          >
+            <div className="bg-gradient-to-r from-blue-50 to-blue-100 rounded-2xl p-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Unified Integration Platform</h3>
+              <p className="text-lg text-gray-600 mb-8 max-w-3xl mx-auto">
+                All monitoring solutions integrate seamlessly into a single dashboard with advanced analytics, 
+                mobile access, and enterprise-grade security for comprehensive facility management.
+              </p>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <BarChart3 className="w-8 h-8 text-white" />
+                  </div>
+                  <h4 className="font-semibold text-gray-900">Real-Time Analytics</h4>
+                </div>
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Smartphone className="w-8 h-8 text-white" />
+                  </div>
+                  <h4 className="font-semibold text-gray-900">Mobile Access</h4>
+                </div>
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Shield className="w-8 h-8 text-white" />
+                  </div>
+                  <h4 className="font-semibold text-gray-900">Enterprise Security</h4>
+                </div>
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <Settings className="w-8 h-8 text-white" />
+                  </div>
+                  <h4 className="font-semibold text-gray-900">API Integration</h4>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -450,6 +714,156 @@ function App() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Healthcare Solutions Section */}
+      <section id="healthcare" className="py-20 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Hospital Equipment Tracking Malaysia | Healthcare IoT Solutions
+            </h2>
+            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+              Leading hospital equipment tracking and healthcare IoT monitoring solutions in Malaysia. 
+              Ensuring patient safety, medical equipment protection, and regulatory compliance across 
+              29+ hospitals including KPJ Healthcare network.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <img 
+                src={hospitalExterior} 
+                alt="Modern Hospital Facility" 
+                className="rounded-lg shadow-2xl"
+              />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-2xl font-bold mb-6">Healthcare Asset & Facility Management</h3>
+              <p className="text-blue-100 mb-6 text-lg">
+                Our comprehensive healthcare solutions ensure critical equipment operates reliably, 
+                environmental conditions remain optimal, and patient safety is never compromised. 
+                Deployed across major healthcare networks including KPJ Healthcare's 29 hospitals.
+              </p>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                  <h4 className="font-semibold mb-2">Environmental Monitoring</h4>
+                  <p className="text-sm text-blue-100">Critical areas, isolation rooms, OT rooms, pharmacies</p>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                  <h4 className="font-semibold mb-2">Power Monitoring</h4>
+                  <p className="text-sm text-blue-100">MRI, CT scanners, X-ray, mammography systems</p>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                  <h4 className="font-semibold mb-2">Water Quality</h4>
+                  <p className="text-sm text-blue-100">Tank monitoring, TDS, pH, chlorine levels</p>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+                  <h4 className="font-semibold mb-2">Asset Tracking</h4>
+                  <p className="text-sm text-blue-100">Real-time medical equipment location and status</p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="bg-white/10 backdrop-blur-sm rounded-lg p-6"
+            >
+              <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mb-4">
+                <Shield className="w-6 h-6 text-white" />
+              </div>
+              <h4 className="text-lg font-semibold mb-3">Patient Safety First</h4>
+              <p className="text-blue-100">
+                Environmental monitoring ensures optimal conditions in critical areas like isolation rooms, 
+                operating theaters, and medication storage facilities.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="bg-white/10 backdrop-blur-sm rounded-lg p-6"
+            >
+              <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mb-4">
+                <Zap className="w-6 h-6 text-white" />
+              </div>
+              <h4 className="text-lg font-semibold mb-3">Equipment Protection</h4>
+              <p className="text-blue-100">
+                Power monitoring for critical medical equipment prevents costly failures and ensures 
+                continuous operation of life-saving devices.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="bg-white/10 backdrop-blur-sm rounded-lg p-6"
+            >
+              <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mb-4">
+                <BarChart3 className="w-6 h-6 text-white" />
+              </div>
+              <h4 className="text-lg font-semibold mb-3">Regulatory Compliance</h4>
+              <p className="text-blue-100">
+                Automated monitoring and reporting ensures compliance with healthcare standards 
+                and provides audit trails for regulatory requirements.
+              </p>
+            </motion.div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="text-center mt-12"
+          >
+            <h3 className="text-2xl font-bold mb-4">Healthcare Benefits</h3>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-blue-300 mb-2">20-40%</div>
+                <div className="text-sm text-blue-100">Maintenance Reduction</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-blue-300 mb-2">30-50%</div>
+                <div className="text-sm text-blue-100">Downtime Improvement</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-blue-300 mb-2">29+</div>
+                <div className="text-sm text-blue-100">Hospitals Deployed</div>
+              </div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-blue-300 mb-2">24/7</div>
+                <div className="text-sm text-blue-100">Monitoring Coverage</div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
