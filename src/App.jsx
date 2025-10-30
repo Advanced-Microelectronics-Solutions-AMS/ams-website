@@ -26,13 +26,13 @@ import './App.css'
 
 // Import images
 import serverRoomHero from './assets/server-room-hero.jpg'
-import iotSensors from './assets/iot-sensors.jpg'
-import dashboardMockup from './assets/dashboard-mockup.png'
-import hospitalExterior from './assets/hospital-exterior.webp'
-import controlRoom from './assets/control-room.webp'
-import hospitalRoom from './assets/hospital-room.webp'
+// import iotSensors from './assets/iot-sensors.jpg'
+import assetTracking from './assets/assetTracking.png'
+import smartHealthcare from './assets/smartHealthcare.png'
+import powerMonitoring from './assets/power-monitoring.png'
+// import hospitalRoom from './assets/hospital-room.webp'
 import amsLogo from './assets/ams-logo.png'
-import waterMonitoringSystem from './assets/water-monitoring-system.png'
+import waterMonitoringSystem from './assets/water-monitoring.png'
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -501,8 +501,8 @@ function App() {
                 </div>
               </div>
               <div className="relative">
-                <img 
-                  src={controlRoom} 
+              <img 
+                  src={powerMonitoring} 
                   alt="Power Monitoring Control Room" 
                   className="rounded-lg shadow-xl"
                 />
@@ -624,8 +624,8 @@ function App() {
                 </div>
               </div>
               <div className="relative">
-                <img 
-                  src={dashboardMockup} 
+              <img 
+                  src={assetTracking} 
                   alt="Asset Tracking Dashboard" 
                   className="rounded-lg shadow-xl"
                 />
@@ -745,8 +745,8 @@ function App() {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <img 
-                src={hospitalExterior} 
+             <img 
+                src={smartHealthcare} 
                 alt="Modern Hospital Facility" 
                 className="rounded-lg shadow-2xl"
               />
